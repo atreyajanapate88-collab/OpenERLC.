@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: openerlc-api
+    runtime: node
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: OPENERLC_MODEL
+        value: openai/gpt-oss-120b
+      - key: OPENERLC_LIVE_ENABLED
+        value: "false"
